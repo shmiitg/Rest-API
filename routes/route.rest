@@ -1,0 +1,24 @@
+GET http://localhost:3000/subscribers
+
+###
+GET http://localhost:3000/subscribers/61293ec3a2028fa0277f1200
+
+###
+POST  http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+    "name": "Shubham",
+    "subscribedToChannel": "Coding Dunk"
+}
+
+###
+DELETE http://localhost:3000/subscribers/61ce80332710da6c449b1c52
+
+###
+PATCH  http://localhost:3000/subscribers/61ce8b405b52e3f7979cf8a6
+Content-Type: application/json
+
+{
+    "name": "shmiitg"
+}

@@ -23,15 +23,15 @@ router.delete('/:id', subsciberMiddleware, async (req, res) => {
         res.json({ message: "Successfully deleted subscriber" })
     }
     catch (err) {
-        res.status(500).json({ message: err });
+        res.status(500).json({ message: err.message });
     }
 })
 
 router.patch('/:id', subsciberMiddleware, async (req, res) => {
-    if (req.body.name !== null) {
+    if (req.body.name) {
         res.subscriber.name = req.body.name;
     }
-    if (req.body.subscribedToChannel !== null) {
+    if (req.body.subscribedToChannel) {
         res.subscriber.subscribedToChannel = req.body.subscribedToChannel;
     }
     try {
@@ -39,7 +39,7 @@ router.patch('/:id', subsciberMiddleware, async (req, res) => {
         res.json(updatedSubsciber);
     }
     catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(400).json({ message: err.message });
     }
 })
 
